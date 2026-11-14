@@ -45,9 +45,11 @@ docker build -t corridor .
 docker run -p 8000:8000 -e DJANGO_SECRET_KEY=change-me corridor
 ```
 
+**Live demo:** https://corridor-chi-azure.vercel.app
+
 **Vercel (free, no card):** `vercel.json` builds the React app as static files and runs Django as one Python function (`api/index.py`). Import the repo in Vercel and set `DJANGO_SECRET_KEY`.
 
-`render.yaml` deploys the Docker image to Render as a Blueprint. For a free host with no card, `deploy/huggingface/` holds a Hugging Face Spaces (Docker) setup: create a Docker Space, add its two files, and set the `DJANGO_SECRET_KEY` secret. The Space clones this repo and builds it. To host the frontend separately (e.g. on Vercel), build it with `VITE_API_URL=https://your-api` and add that origin to `CORS_ALLOWED_ORIGINS`. All settings are listed in `.env.example`.
+`render.yaml` deploys the Docker image to Render as a Blueprint. `deploy/huggingface/` holds a Hugging Face Spaces (Docker) setup (Docker Spaces need a paid plan): create a Docker Space, add its two files, and set the `DJANGO_SECRET_KEY` secret. The Space clones this repo and builds it. To host the frontend separately (e.g. on Vercel), build it with `VITE_API_URL=https://your-api` and add that origin to `CORS_ALLOWED_ORIGINS`. All settings are listed in `.env.example`.
 
 ---
 
